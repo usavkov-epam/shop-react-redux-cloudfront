@@ -8,12 +8,12 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from "@material-ui/core/Typography";
 
-import { PaperLayout } from "components";
-import { API_PATHS } from "constants/apiPaths";
+import { PaperLayout } from "../../../components";
+import { API_PATHS } from "../../../constants/apiPaths";
 import {
   Product,
   ProductSchema,
-} from "models/Product";
+} from "../../../models/Product";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {

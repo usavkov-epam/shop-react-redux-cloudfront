@@ -11,7 +11,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import { API_PATHS } from "constants/apiPaths";
+import { API_PATHS } from "../../../../constants";
 
 export function Orders() {
   const [orders, setOrders] = useState<any>([]);

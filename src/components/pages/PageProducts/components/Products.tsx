@@ -9,10 +9,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { AddProductToCart } from "components";
-// import { API_PATHS } from "constants/apiPaths";
-import { Product } from "models/Product";
-import { formatAsPrice } from "utils";
+import { AddProductToCart } from "../../../../components";
+// import { API_PATHS } from "../../../../constants";
+import { Product } from "../../../../models/Product";
+import { formatAsPrice } from "../../../../utils";
 import productList from "./productList.json";
 
 const useStyles = makeStyles((theme) => ({

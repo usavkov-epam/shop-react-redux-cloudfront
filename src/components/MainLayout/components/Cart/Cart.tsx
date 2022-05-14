@@ -7,8 +7,8 @@ import Badge from "@material-ui/core/Badge";
 import CartIcon from "@material-ui/icons/ShoppingCart";
 import IconButton from "@material-ui/core/IconButton";
 
-import { API_PATHS } from "constants/apiPaths";
-import { selectCartItems, updateFromApi } from "store/cartSlice";
+import { API_PATHS } from "../../../../constants";
+import { selectCartItems, updateFromApi } from "../../../../store/cartSlice";
 
 export default function Cart() {
   const dispatch = useDispatch();

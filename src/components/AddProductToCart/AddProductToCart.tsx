@@ -6,16 +6,16 @@ import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import IconButton from "@material-ui/core/IconButton";
 
-import { Product } from "models/Product";
+import { Product } from "../../models/Product";
 import {
   addToCart,
   selectCartItems,
   removeFromCart,
-} from "store/cartSlice";
+} from "../../store/cartSlice";
 import {
   useAppDispatch,
   useAppSelector,
-} from 'store/hooks';
+} from '../../store/hooks';
 
 type AddProductToCartProps = {
   product: Product

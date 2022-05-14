@@ -12,10 +12,10 @@ import {
   PageProductForm,
   PageProductImport,
   PageProducts,
-} from "components/pages";
+} from "../../components/pages";
 import {
   MainLayout,
-} from "components";
+} from "../../components";
 
 import './App.css';
 

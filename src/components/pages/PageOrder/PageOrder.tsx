@@ -15,16 +15,16 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 
-import { PaperLayout } from "components";
-import { ReviewOrder } from "components/pages";
-import { API_PATHS } from "constants/apiPaths";
+import { PaperLayout } from "../../../components";
+import { ReviewOrder } from "../../../components/pages";
+import { API_PATHS } from "../../../constants/apiPaths";
 import {
   ORDER_STATUS,
   ORDER_STATUS_FLOW,
-} from "constants/order";
-import { CartItem } from "models/CartItem";
-import { OrderItem } from "models/Order";
-import { Product } from "models/Product";
+} from "../../../constants/order";
+import { CartItem } from "../../../models/CartItem";
+import { OrderItem } from "../../../models/Order";
+import { Product } from "../../../models/Product";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {

@@ -11,8 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import { API_PATHS } from "constants/apiPaths";
-import { formatAsPrice } from "utils";
+import { API_PATHS } from "../../../../../../constants";
+import { formatAsPrice } from "../../../../../../utils";
 
 export default function ProductsTable() {
   const [products, setProducts] = useState<any>([]);

@@ -6,9 +6,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 
-import { AddProductToCart } from "components";
-import { CartItem } from "models/CartItem";
-import { formatAsPrice } from "utils";
+import { AddProductToCart } from "../../components";
+import { CartItem } from "../../models/CartItem";
+import { formatAsPrice } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   listItem: {

@@ -11,18 +11,24 @@ import Stepper from '@material-ui/core/Stepper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { PaperLayout } from "components";
+import { PaperLayout } from "../../../components";
 import {
   ReviewCart,
   ReviewOrder,
-} from 'components/pages';
-import { API_PATHS} from "constants/apiPaths";
-import { AddressSchema, OrderSchema } from "models/Order";
+} from '../../../components/pages';
+import { API_PATHS} from "../../../constants/apiPaths";
+import {
+  AddressSchema,
+  OrderSchema
+} from "../../../models/Order";
 import {
   clearCart,
   selectCartItems,
-} from "store/cartSlice";
-import { useAppDispatch, useAppSelector } from "store/hooks";
+} from "../../../store/cartSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../store/hooks";
 
 const useStyles = makeStyles((theme) => ({
   stepper: {

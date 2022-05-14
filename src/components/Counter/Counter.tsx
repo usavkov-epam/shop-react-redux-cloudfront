@@ -6,11 +6,11 @@ import {
   incrementByAmount,
   incrementAsync,
   selectCount,
-} from 'store/counterSlice';
+} from '../../store/counterSlice';
 import {
   useAppDispatch,
   useAppSelector,
-} from 'store/hooks';
+} from '../../store/hooks';
 
 import styles from './Counter.module.css';
 

@@ -1,3 +1,10 @@
+import {
+  Field,
+  Form,
+  Formik,
+  FormikProps,
+  FormikValues,
+} from "formik";
 import React from 'react';
 import * as Yup from "yup";
 
@@ -8,15 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
-import {
-  Field,
-  Form,
-  Formik,
-  FormikProps,
-  FormikValues,
-} from "formik";
-
-import {ProductSchema} from "models/Product";
+import { ProductSchema } from "../../../../models/Product";
 
 type AddressFormProps = {
   initialValues: object,
