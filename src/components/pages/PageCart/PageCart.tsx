@@ -1,20 +1,25 @@
-import React, {useState} from 'react';
+import axios from "axios";
+import { TextField } from 'formik-material-ui';
+import React, { useState } from 'react';
+
 import {makeStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ReviewCart from 'components/pages/PageCart/components/ReviewCart';
-import ReviewOrder from 'components/pages/PageCart/components/ReviewOrder';
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartItems, clearCart} from "store/cartSlice";
 import PaperLayout from "components/PaperLayout/PaperLayout";
 import {Formik, Form, FormikProps, FormikValues, FastField} from "formik";
 import Grid from "@material-ui/core/Grid";
-import {TextField} from 'formik-material-ui';
-import axios from "axios";
-import API_PATHS from "constants/apiPaths";
+
+import {
+  ReviewCart,
+  ReviewOrder,
+} from 'components/pages';
+
+import { API_PATHS} from "constants/apiPaths";
 import {AddressSchema, OrderSchema} from "models/Order";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,14 +47,14 @@ const CartIsEmpty = () => (
 );
 
 const Success = () => (
-  <React.Fragment>
+  <>
     <Typography variant="h5" gutterBottom>
       Thank you for your order.
     </Typography>
     <Typography variant="subtitle1">
       Your order is placed. Our manager will call you soon to clarify the details.
     </Typography>
-  </React.Fragment>
+  </>
 );
 
 const renderForm = () => (
@@ -104,7 +109,7 @@ const renderForm = () => (
 
 export default function PageCart() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState<number>(0);
+  const [activeStep, setActiveStep] = useState<number>(0);
   const cartItems = useSelector(selectCartItems);
   const isCartEmpty = !cartItems.length;
   const [address, setAddress] = useState<FormikValues>(initialAddressValues);
@@ -142,7 +147,7 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
-      <React.Fragment>
+      <>
         <Formik
           enableReinitialize={false}
           initialValues={initialAddressValues}
@@ -183,7 +188,7 @@ export default function PageCart() {
               {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
             </Button>)}
         </div>}
-      </React.Fragment>
+      </>
     </PaperLayout>
   );
 }

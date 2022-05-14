@@ -1,25 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import {OrderItem} from "models/Order";
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
-import PaperLayout from "components/PaperLayout/PaperLayout";
-import Typography from "@material-ui/core/Typography";
-import API_PATHS from "constants/apiPaths";
-import {CartItem} from "models/CartItem";
-import {Product} from "models/Product";
-import ReviewOrder from "components/pages/PageCart/components/ReviewOrder";
-import {ORDER_STATUS, ORDER_STATUS_FLOW} from "constants/order";
+import { Field, Formik, FormikProps, FormikValues } from "formik";
+import { TextField } from "formik-material-ui";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
-import {Field, Formik, FormikProps, FormikValues} from "formik";
 import Grid from "@material-ui/core/Grid";
-import {TextField} from "formik-material-ui";
+import MenuItem from "@material-ui/core/MenuItem";
 import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import TableBody from "@material-ui/core/TableBody";
-import TableContainer from "@material-ui/core/TableContainer";
+import Typography from "@material-ui/core/Typography";
+
+import { PaperLayout } from "components";
+import { ReviewOrder } from "components/pages";
+import { API_PATHS } from "constants/apiPaths";
+import {
+  ORDER_STATUS,
+  ORDER_STATUS_FLOW,
+} from "constants/order";
+import { CartItem } from "models/CartItem";
+import { OrderItem } from "models/Order";
+import { Product } from "models/Product";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {

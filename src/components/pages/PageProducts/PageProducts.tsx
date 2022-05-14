@@ -1,6 +1,8 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Products from "components/pages/PageProducts/components/Products";
+
+import { makeStyles } from '@material-ui/core/styles';
+
+import { Products } from "components/pages";
 
 const useStyles = makeStyles((theme) => ({
   content: {

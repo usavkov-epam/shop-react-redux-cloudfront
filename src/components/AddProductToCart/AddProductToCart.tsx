@@ -1,12 +1,18 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
 import Typography from '@material-ui/core/Typography';
-import {Product} from "models/Product";
 import CartIcon from "@material-ui/icons/ShoppingCart";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import IconButton from "@material-ui/core/IconButton";
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart, selectCartItems, removeFromCart} from "store/cartSlice";
+
+import { Product } from "models/Product";
+import {
+  addToCart,
+  selectCartItems,
+  removeFromCart,
+} from "store/cartSlice";
 
 type AddProductToCartProps = {
   product: Product

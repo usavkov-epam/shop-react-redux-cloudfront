@@ -1,10 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import CartItems from "components/CartItems/CartItems";
 import {FormikValues} from "formik";
-import {CartItem} from "models/CartItem";
+
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { CartItems } from "components";
+import { CartItem } from "models/CartItem";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -17,7 +19,7 @@ type ReviewOrderProps = {
   items: CartItem[]
 };
 
-export default function ReviewOrder({address, items}:ReviewOrderProps) {
+export function ReviewOrder({address, items}:ReviewOrderProps) {
   const classes = useStyles();
 
   return (

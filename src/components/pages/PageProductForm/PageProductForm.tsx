@@ -1,14 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import { Formik, Field, FormikProps, FormikValues } from 'formik';
+import { TextField } from 'formik-material-ui';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import {Product, ProductSchema} from "models/Product";
-import {Formik, Field, FormikProps, FormikValues} from 'formik';
-import {TextField} from 'formik-material-ui';
-import axios from 'axios';
-import {useHistory, useParams} from 'react-router-dom';
-import PaperLayout from "components/PaperLayout/PaperLayout";
 import Typography from "@material-ui/core/Typography";
-import API_PATHS from "constants/apiPaths";
+
+import { PaperLayout } from "components";
+import { API_PATHS } from "constants/apiPaths";
+import {
+  Product,
+  ProductSchema,
+} from "models/Product";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {

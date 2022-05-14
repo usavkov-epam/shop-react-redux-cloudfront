@@ -1,10 +1,12 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import CartItems from "components/CartItems/CartItems";
-import {useSelector} from "react-redux";
-import {selectCartItems} from "store/cartSlice";
+import { useSelector } from "react-redux";
 
-export default function ReviewCart() {
+import Typography from '@material-ui/core/Typography';
+
+import { CartItems } from "components";
+import { selectCartItems } from "store/cartSlice";
+
+export function ReviewCart() {
   const cartItems = useSelector(selectCartItems);
 
   return (
