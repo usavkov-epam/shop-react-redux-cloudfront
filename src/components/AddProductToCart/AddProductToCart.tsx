@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
 
 import Typography from '@material-ui/core/Typography';
 import CartIcon from "@material-ui/icons/ShoppingCart";
@@ -13,14 +12,18 @@ import {
   selectCartItems,
   removeFromCart,
 } from "store/cartSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from 'store/hooks';
 
 type AddProductToCartProps = {
   product: Product
 };
 
 export default function AddProductToCart({product}: AddProductToCartProps) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(selectCartItems);
   const cartItem = cartItems.find(i => i.product.id === product.id);
 
   return (

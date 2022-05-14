@@ -1,8 +1,22 @@
 import React from 'react';
-import { createShallow } from '@material-ui/core/test-utils';
-import App from 'components/App/App';
+import { render } from '@testing-library/react';
 
-test('renders correctly', () => {
-  const wrapper = createShallow()(<App />);
-  expect(wrapper).toMatchSnapshot();
+import App from './App';
+
+const Comp = () => (
+  <>
+    Hello
+  </>
+)
+
+const renderApp = (props = {}) => render(
+  <Comp />
+)
+
+it('renders correctly', () => {
+  const { screen } = renderApp();
+
+  console.log('Hi')
+
+  screen.debug()
 });

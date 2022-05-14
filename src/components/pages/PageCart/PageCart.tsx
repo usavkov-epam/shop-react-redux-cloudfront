@@ -1,26 +1,28 @@
 import axios from "axios";
+import { Formik, Form, FormikProps, FormikValues, FastField } from "formik";
 import { TextField } from 'formik-material-ui';
 import React, { useState } from 'react';
 
-import {makeStyles} from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
+import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
+import Stepper from '@material-ui/core/Stepper';
 import Typography from '@material-ui/core/Typography';
-import {useDispatch, useSelector} from "react-redux";
-import {selectCartItems, clearCart} from "store/cartSlice";
-import PaperLayout from "components/PaperLayout/PaperLayout";
-import {Formik, Form, FormikProps, FormikValues, FastField} from "formik";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from '@material-ui/core/styles';
 
+import { PaperLayout } from "components";
 import {
   ReviewCart,
   ReviewOrder,
 } from 'components/pages';
-
 import { API_PATHS} from "constants/apiPaths";
-import {AddressSchema, OrderSchema} from "models/Order";
+import { AddressSchema, OrderSchema } from "models/Order";
+import {
+  clearCart,
+  selectCartItems,
+} from "store/cartSlice";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 const useStyles = makeStyles((theme) => ({
   stepper: {
@@ -109,12 +111,13 @@ const renderForm = () => (
 
 export default function PageCart() {
   const classes = useStyles();
+  const cartItems = useAppSelector(selectCartItems);
+  const dispatch = useAppDispatch();
   const [activeStep, setActiveStep] = useState<number>(0);
-  const cartItems = useSelector(selectCartItems);
-  const isCartEmpty = !cartItems.length;
   const [address, setAddress] = useState<FormikValues>(initialAddressValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  const dispatch = useDispatch();
+
+  const isCartEmpty = !cartItems.length;
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);

@@ -7,6 +7,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { Header } from "./components";
 
+interface MainLayoutProps extends React.PropsWithChildren<{}> {
+  
+}
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -30,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainLayout: React.FC = ({children}) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const classes = useStyles();
 
   return (

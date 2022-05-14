@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { API_PATHS } from "constants/apiPaths";
 import { CartItem } from "models/CartItem";
