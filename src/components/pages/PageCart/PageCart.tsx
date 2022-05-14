@@ -29,6 +29,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../store/hooks";
+import { Outlet } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   stepper: {
@@ -198,6 +199,8 @@ export default function PageCart() {
             </Button>)}
         </div>}
       </>
+
+      <Outlet />
     </PaperLayout>
   );
 }

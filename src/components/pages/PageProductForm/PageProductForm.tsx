@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Formik, Field, FormikProps, FormikValues } from 'formik';
 import { TextField } from 'formik-material-ui';
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -106,8 +106,8 @@ const Form = (props: FormikProps<FormikValues>) => {
 const emptyValues: any = ProductSchema.cast();
 
 export default function PageProductForm() {
-  const history = useHistory();
-  const {id} = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -115,7 +115,7 @@ export default function PageProductForm() {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
     axios.put(`${API_PATHS.bff}/product`, productToSave)
-      .then(() => history.push('/admin/products'));
+      .then(() => navigate('/admin/products'));
   };
 
   useEffect(() => {
@@ -126,8 +126,9 @@ export default function PageProductForm() {
     axios.get(`${API_PATHS.bff}/product/${id}`)
       .then(res => {
         setProduct(res.data);
-        setIsLoading(false);
-      });
+      })
+      .catch(() => navigate('/admin/products')) // TODO: add error handler
+      .finally(() => setIsLoading(false));
   }, [id])
 
   if (isLoading) return <p>loading...</p>;

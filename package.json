@@ -30,7 +30,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "3.4.1",
     "serverless": "^3.17.0",
     "serverless-finch": "^4.0.0",

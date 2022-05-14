@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Products } from "../../../components/pages";
+import { Outlet } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -16,6 +17,8 @@ export default function PageProducts() {
   return (
     <div className={classes.content}>
       <Products/>
+
+      <Outlet />
     </div>
   );
 }

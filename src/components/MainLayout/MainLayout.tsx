@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Header } from "./components";
+import { Outlet } from 'react-router-dom';
 
 interface MainLayoutProps extends React.PropsWithChildren<{}> {
   
@@ -51,6 +52,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </Typography>
         <Copyright/>
       </footer>
+
+      <Outlet />
     </>
   );
 };
