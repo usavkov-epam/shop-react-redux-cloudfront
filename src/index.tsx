@@ -20,7 +20,7 @@ const theme = createTheme({
       white: "#fff",
     },
     background: {
-      paper: "rgba(210, 210, 215, 1)",
+      paper: "#f5f5f5",
       default: "rgba(255, 255, 255, 1)",
     },
     primary: {

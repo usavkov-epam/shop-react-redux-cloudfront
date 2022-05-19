@@ -1,0 +1,6 @@
+@import '../../variables.css';
+
+.main {
+  display: flex;
+  min-height: calc(100vh - var(--header-height) - var(--footer-min-height));
+};

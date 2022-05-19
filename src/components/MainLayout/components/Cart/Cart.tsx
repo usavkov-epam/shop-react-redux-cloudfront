@@ -33,9 +33,10 @@ export default function Cart() {
       color="inherit"
       component={Link}
       to="/cart"
+      size="small"
     >
       <Badge badgeContent={badgeContent} color="secondary">
-        <CartIcon/>
+        <CartIcon />
       </Badge>
     </IconButton>
   );
