@@ -1,12 +1,14 @@
+import axios from 'axios';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
+
 import Badge from "@material-ui/core/Badge";
 import CartIcon from "@material-ui/icons/ShoppingCart";
 import IconButton from "@material-ui/core/IconButton";
-import React, { useEffect } from "react";
-import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems, updateFromApi } from "store/cartSlice";
-import { Link } from 'react-router-dom';
-import API_PATHS from "../../../constants/apiPaths";
+
+import { API_PATHS } from "../../../../constants";
+import { selectCartItems, updateFromApi } from "../../../../store/cartSlice";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -31,9 +33,10 @@ export default function Cart() {
       color="inherit"
       component={Link}
       to="/cart"
+      size="small"
     >
       <Badge badgeContent={badgeContent} color="secondary">
-        <CartIcon/>
+        <CartIcon />
       </Badge>
     </IconButton>
   );

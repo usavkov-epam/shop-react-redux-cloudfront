@@ -1,21 +1,35 @@
-import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
+import axios from "axios";
+import { Formik, Form, FormikProps, FormikValues, FastField } from "formik";
+import { TextField } from 'formik-material-ui';
+import React, { useState } from 'react';
+
+import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
+import Stepper from '@material-ui/core/Stepper';
 import Typography from '@material-ui/core/Typography';
-import ReviewCart from 'components/pages/PageCart/components/ReviewCart';
-import ReviewOrder from 'components/pages/PageCart/components/ReviewOrder';
-import {useDispatch, useSelector} from "react-redux";
-import {selectCartItems, clearCart} from "store/cartSlice";
-import PaperLayout from "components/PaperLayout/PaperLayout";
-import {Formik, Form, FormikProps, FormikValues, FastField} from "formik";
-import Grid from "@material-ui/core/Grid";
-import {TextField} from 'formik-material-ui';
-import axios from "axios";
-import API_PATHS from "constants/apiPaths";
-import {AddressSchema, OrderSchema} from "models/Order";
+import { makeStyles } from '@material-ui/core/styles';
+
+import { PaperLayout } from "../../../components";
+import {
+  ReviewCart,
+  ReviewOrder,
+} from '../../../components/pages';
+import { API_PATHS} from "../../../constants/apiPaths";
+import {
+  AddressSchema,
+  OrderSchema
+} from "../../../models/Order";
+import {
+  clearCart,
+  selectCartItems,
+} from "../../../store/cartSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../store/hooks";
+import { Outlet } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   stepper: {
@@ -42,14 +56,14 @@ const CartIsEmpty = () => (
 );
 
 const Success = () => (
-  <React.Fragment>
+  <>
     <Typography variant="h5" gutterBottom>
       Thank you for your order.
     </Typography>
     <Typography variant="subtitle1">
       Your order is placed. Our manager will call you soon to clarify the details.
     </Typography>
-  </React.Fragment>
+  </>
 );
 
 const renderForm = () => (
@@ -104,12 +118,13 @@ const renderForm = () => (
 
 export default function PageCart() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState<number>(0);
-  const cartItems = useSelector(selectCartItems);
-  const isCartEmpty = !cartItems.length;
+  const cartItems = useAppSelector(selectCartItems);
+  const dispatch = useAppDispatch();
+  const [activeStep, setActiveStep] = useState<number>(0);
   const [address, setAddress] = useState<FormikValues>(initialAddressValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  const dispatch = useDispatch();
+
+  const isCartEmpty = !cartItems.length;
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -142,7 +157,7 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
-      <React.Fragment>
+      <>
         <Formik
           enableReinitialize={false}
           initialValues={initialAddressValues}
@@ -183,7 +198,9 @@ export default function PageCart() {
               {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
             </Button>)}
         </div>}
-      </React.Fragment>
+      </>
+
+      <Outlet />
     </PaperLayout>
   );
 }

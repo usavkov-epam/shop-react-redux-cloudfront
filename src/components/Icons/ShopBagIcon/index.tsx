@@ -1,0 +1,1 @@
+export { ShopBagIcon } from './ShopBagIcon';

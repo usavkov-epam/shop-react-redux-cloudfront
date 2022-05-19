@@ -1,6 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from 'store/counterSlice';
-import cartReducer from 'store/cartSlice';
+
+import counterReducer from './counterSlice';
+import cartReducer from './cartSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,3 +17,4 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+export type AppDispatch = typeof store.dispatch;

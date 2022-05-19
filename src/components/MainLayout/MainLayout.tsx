@@ -1,9 +1,18 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
+
 import Container from "@material-ui/core/Container";
-import Header from "components/MainLayout/components/Header";
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { Header } from "./components";
+import { Outlet } from 'react-router-dom';
+
+import styles from './MainLayout.module.css';
+
+interface MainLayoutProps extends React.PropsWithChildren<{}> {
+  
+}
 
 function Copyright() {
   return (
@@ -18,23 +27,30 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    paddingBottom: theme.spacing(8),
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-}));
+const useStyles = makeStyles((theme) => {
+  console.log(theme);
 
-const MainLayout: React.FC = ({children}) => {
+  return ({
+    main: {
+      backgroundColor: theme.palette.background.paper,
+    },
+    container: {
+      paddingBottom: theme.spacing(8),
+    },
+    footer: {
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(4),
+    },
+  })
+});
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const classes = useStyles();
 
   return (
     <>
       <Header/>
-      <main>
+      <main className={[styles.main, classes.main].join(' ')}>
         <Container className={classes.container} maxWidth="md">
           {children!}
         </Container>
@@ -45,6 +61,8 @@ const MainLayout: React.FC = ({children}) => {
         </Typography>
         <Copyright/>
       </footer>
+
+      <Outlet />
     </>
   );
 };

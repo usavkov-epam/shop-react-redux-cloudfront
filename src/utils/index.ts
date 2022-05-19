@@ -1,0 +1,1 @@
+export { formatAsPrice } from './formatAsPrice';

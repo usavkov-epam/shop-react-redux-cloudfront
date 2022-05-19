@@ -1,11 +1,15 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import API_PATHS from "constants/apiPaths";
-import ProductsTable from "components/pages/admin/PageProductImport/components/ProductsTable";
-import CSVFileImport from "components/pages/admin/PageProductImport/components/CSVFileImport";
-import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+
 import Box from "@material-ui/core/Box";
-import {Link} from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+
+import { API_PATHS } from "../../../../constants";
+import {
+  CSVFileImport,
+  ProductsTable,
+} from "./components";
 
 const useStyles = makeStyles((theme) => ({
   content: {

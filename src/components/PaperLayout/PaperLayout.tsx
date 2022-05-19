@@ -1,6 +1,11 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
+interface PaperLayoutProps extends React.PropsWithChildren<{}> {
+  
+}
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -25,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaperLayout:React.FC = ({children}) =>  {
+const PaperLayout:React.FC<PaperLayoutProps> = ({ children }) =>  {
   const classes = useStyles();
 
   return (

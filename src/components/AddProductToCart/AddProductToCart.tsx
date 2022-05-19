@@ -1,20 +1,29 @@
 import React from 'react';
+
 import Typography from '@material-ui/core/Typography';
-import {Product} from "models/Product";
 import CartIcon from "@material-ui/icons/ShoppingCart";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import IconButton from "@material-ui/core/IconButton";
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart, selectCartItems, removeFromCart} from "store/cartSlice";
+
+import { Product } from "../../models/Product";
+import {
+  addToCart,
+  selectCartItems,
+  removeFromCart,
+} from "../../store/cartSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../store/hooks';
 
 type AddProductToCartProps = {
   product: Product
 };
 
 export default function AddProductToCart({product}: AddProductToCartProps) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(selectCartItems);
   const cartItem = cartItems.find(i => i.product.id === product.id);
 
   return (

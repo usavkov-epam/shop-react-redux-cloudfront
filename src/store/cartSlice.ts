@@ -1,9 +1,10 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {RootState} from 'store/store';
-import {Product} from "models/Product";
-import {CartItem} from "models/CartItem";
-import API_PATHS from "../constants/apiPaths";
 import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { API_PATHS } from "../constants";
+import { CartItem } from "../models/CartItem";
+import { Product } from "../models/Product";
+import { RootState } from './store';
 
 interface CartState {
   items: CartItem[]
