@@ -20,9 +20,11 @@ export default function Cart() {
             Authorization: `Basic ${localStorage.getItem('authorization_token')}`
           }
         }
-    ).then(({ data: { data: { cart } } }) => {
-      dispatch(updateFromApi(cart))
-    });
+    )
+      .then(({ data: { data: { cart } } }) => {
+        dispatch(updateFromApi(cart))
+      })
+      .catch(console.log);
   }, [dispatch]);
   const cartItems = useSelector(selectCartItems);
   const badgeContent = cartItems.length || undefined;
